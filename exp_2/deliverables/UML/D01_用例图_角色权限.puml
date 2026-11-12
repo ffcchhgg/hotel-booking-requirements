@@ -1,0 +1,46 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D01 用例图 · 角色权限
+left to right direction
+actor 顾客 as C
+actor 酒店工作人员 as S
+actor 平台管理员 as A
+rectangle 酒店预订系统 {
+usecase "登录" as U1
+usecase "顾客注册" as U11
+usecase "查询房源与查看资料" as U2
+usecase "本人预订与模拟付款" as U3
+usecase "本人订单查询/取消/修改" as U4
+usecase "本酒店接单与线下订房" as U5
+usecase "入住/退房/清洁确认" as U6
+usecase "本酒店资料与房量价格申请" as U7
+usecase "本酒店应急处置\n候选权限 A11" as U8
+usecase "审核变更与设置费率" as U9
+usecase "跨酒店订单/统计/日志查询" as U10
+}
+C --> U1
+C --> U11
+C --> U2
+C --> U3
+C --> U4
+S --> U1
+S --> U5
+S --> U6
+S --> U7
+S --> U8
+A --> U1
+A --> U9
+A --> U10
+note bottom of U4
+顾客仅本人；员工仅本酒店。
+管理员查询权限不等于所有写权限。
+付款退款模拟；电话与备案在系统外。
+end note
+
+@enduml

@@ -1,0 +1,275 @@
+[
+  {
+    "file": "home.png",
+    "source": "deliverables/UI界面/首页.png",
+    "crop_box": [
+      126,
+      110,
+      1315,
+      670
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "a3ca3620143578d05481f96a62303db8d3d44586e99f9636953843200ef7b921",
+    "output_sha256": "bca22d2bee86ea67043767dc511087c369c652d9070a0acc2b65d1b8db188534"
+  },
+  {
+    "file": "results.png",
+    "source": "deliverables/UI界面/U02_normal.png",
+    "crop_box": [
+      126,
+      135,
+      1315,
+      940
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "4a77800f8cb5a1a10bfecea9917e70bb0bcbfd37333ca110c5382e33f27b838e",
+    "output_sha256": "3956cd5f1cd372cb22b47055303a3fa9488ad4be0e971bea95794681a797bd85"
+  },
+  {
+    "file": "detail.png",
+    "source": "deliverables/UI界面/U03_normal.png",
+    "crop_box": [
+      126,
+      605,
+      1315,
+      1390
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "6a55f1116106aac855b41120dfe75cc6c19f46b3e03da70ed8867851ec1ed94d",
+    "output_sha256": "a15233f323a014f08b69a0dcf22c8281dea406a31827e689e5644f25034cdee4"
+  },
+  {
+    "file": "checkout.png",
+    "source": "deliverables/UI界面/U04_normal.png",
+    "crop_box": [
+      126,
+      213,
+      1315,
+      880
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "c24bc750c8641d8f71d48cef74900e95552a1ef7aad6083cf79a8aa4d3b4faa6",
+    "output_sha256": "ea1352306d69c9320844bbac54d10e0342c684e1e0da597a817f9f5ed4b2f7cf"
+  },
+  {
+    "file": "login.png",
+    "source": "deliverables/UI界面/U01_normal.png",
+    "crop_box": [
+      250,
+      138,
+      1190,
+      770
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "29eb069219bb8ef43481f7d777e7233551432c1965a834f93d9267f6dfe4a64f",
+    "output_sha256": "3863741ad9ffa1988746971ac7eb743d848e74d120c7ba5d65a266f75f26df8b"
+  },
+  {
+    "file": "pending.png",
+    "source": "deliverables/UI界面/U16_normal.png",
+    "crop_box": [
+      126,
+      156,
+      1315,
+      1100
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "8bb98afa70cf4e6b1e4e8794e6e09a2f700055b22a80c70be58cd02dfc891fe5",
+    "output_sha256": "ca5e9e3b02ec78f99982ad4e4041e7fa6c2915af820178feb5f9052837a8c955"
+  },
+  {
+    "file": "orders.png",
+    "source": "deliverables/UI界面/U05_normal.png",
+    "crop_box": [
+      126,
+      132,
+      1315,
+      520
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "3abee9a8742c0f857723d21e6e7640d24cb691e5438d426e7920b4c315e96c1a",
+    "output_sha256": "6eff170de612ff828ef971ab6845024df1b20b75d52ade1935cf2682ec9c8cb1"
+  },
+  {
+    "file": "cancel.png",
+    "source": "deliverables/UI界面/U17_normal.png",
+    "crop_box": [
+      446,
+      318,
+      994,
+      682
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "6736aa81c941f90217badfd2abb4ce95dd7e01806f3346fd93b57f60add354bc",
+    "output_sha256": "a8d5dbecd98017e0eb8b75f6b3c63fee2722e3197185f8fce00844d9140835fd"
+  },
+  {
+    "file": "modify.png",
+    "source": "deliverables/UI界面/修改风险确认.png",
+    "crop_box": [
+      446,
+      322,
+      994,
+      679
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "19017fd62d1df0c0fc373bb58f087434c2c448dec2ba742fde5c1438e06a3b64",
+    "output_sha256": "a2f58a62efe243666a5788769dc9e81c413be4adde67fabe155258ab748917c1"
+  },
+  {
+    "file": "modify_failed.png",
+    "source": "deliverables/UI界面/U18_normal.png",
+    "crop_box": [
+      126,
+      156,
+      1315,
+      1035
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "c6276058d7d1d987d302a7f46ffc51ad5664158af7ea1fed63c608fa072c0922",
+    "output_sha256": "d4f62ab3f29c119cb7d32ef80b9397093397d3c7304f141c5ff128dc66758c6b"
+  },
+  {
+    "file": "staff.png",
+    "source": "deliverables/UI界面/U06_normal.png",
+    "crop_box": [
+      0,
+      0,
+      1440,
+      755
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "915e78831bb0b35f9968c4a457a543a1b7079400809e6ac4ea9e83edbd02c637",
+    "output_sha256": "db263e7df1eb17bdeabda9bf9f4e5cc15985dd4ec6dfc13fbd6330468608bfa8"
+  },
+  {
+    "file": "offline.png",
+    "source": "deliverables/UI界面/U07_normal.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      725
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "4d1c9e7c711148415427da4675db17e574ffdc80c88d3779d1bfe7884d6b5439",
+    "output_sha256": "b4ce74e9e7d84403c32de9f7e0838c3dfe5b44abb50c58df5bab0b37a3842f3f"
+  },
+  {
+    "file": "checkin.png",
+    "source": "deliverables/UI界面/入住登记.png",
+    "crop_box": [
+      446,
+      276,
+      994,
+      724
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "041f215c3e07f3272400215e123261a478d06cc8a6ff7cd139137e1314cf4bf5",
+    "output_sha256": "6e9f48edb088a8ee80e2a1664ed29b1590ce26255ad640d860919f2a255c8e37"
+  },
+  {
+    "file": "rooms.png",
+    "source": "deliverables/UI界面/U09_normal.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      720
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "6df7e0825cd3f76c94731ec63300151af6506e1922d8d4e4ef6fbcd3c6d5f4a9",
+    "output_sha256": "6a2d1bcce9348ef46b95d14c50d0820014d1765cb42348b7c88471fc97905862"
+  },
+  {
+    "file": "catalog.png",
+    "source": "deliverables/UI界面/U10_normal.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      895
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "906302a6eff65ecfd017d72940035298a5d13faaf0b33238f20c0f36ea2e4507",
+    "output_sha256": "86cce9d8af0bf72c04c06df25aae5165638c3d62c65b6c3f20c226c4c2155f9b"
+  },
+  {
+    "file": "inventory.png",
+    "source": "deliverables/UI界面/U11_normal.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      925
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "a27e6b7aaa4a2119197f44c46adae365b99f32a7de8fdc9fb0d1145b91b92603",
+    "output_sha256": "0f7a5279250221bf00a1349ef28af816a9e35dae76ce294f521471df3660d31f"
+  },
+  {
+    "file": "reviews.png",
+    "source": "deliverables/UI界面/U12_normal.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      660
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "47c97f2565bcaa5a19dbb31514a5eb38710b0adb9ffe1bf5d7bb49c545a426cb",
+    "output_sha256": "44ad114d63c1347561421ebbc9d4e8c6bf71b533a7388f4c9b6ade8100fb5014"
+  },
+  {
+    "file": "incident.png",
+    "source": "deliverables/UI界面/U15_normal.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      865
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "6ecf17c88fd036c19b647bcdf85094563e4596797d88d804203c1dd6ab76ccdd",
+    "output_sha256": "c354d53b108b9c713a7702533af8275392c6bb5c15f7501cb349c166967f8a92"
+  },
+  {
+    "file": "global_orders.png",
+    "source": "deliverables/UI界面/全局订单查询.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      715
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "0e3408622bdff737eb9750618d88b5647a248b18b76e68049d6bc9591af0dd07",
+    "output_sha256": "cc39f9d88790d79043f2586a51e759a20c95687f8862e3f510fff74c1fa67b42"
+  },
+  {
+    "file": "overview.png",
+    "source": "deliverables/UI界面/U13_normal.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      825
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "4fcca76e2442770ac5725c2b415adb86047bf2e9fb138d0c9bdc64b22e3c7a30",
+    "output_sha256": "a19989a4fe7d660f30d7eb1ff431f7cb8e4ab3e9bcab941372bbc63ddea3dcaa"
+  },
+  {
+    "file": "logs.png",
+    "source": "deliverables/UI界面/U14_normal.png",
+    "crop_box": [
+      250,
+      100,
+      1415,
+      440
+    ],
+    "conversion": "original screenshot colors, RGB crop, no content edits",
+    "source_sha256": "58b4ee365cebe006c740f79edfefe98b49411003a8efdf542674b08d7ef05656",
+    "output_sha256": "65ce2e5d7a12b51fd0ab0c98087272eb268422092f5ea870058e0a31fce81ca4"
+  }
+]

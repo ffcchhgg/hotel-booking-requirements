@@ -1,0 +1,82 @@
+@startuml
+skinparam monochrome false
+skinparam backgroundColor #FFFFFF
+skinparam ArrowColor #476858
+skinparam ActorBorderColor #476858
+skinparam ActorFontColor #263C32
+skinparam ActorBackgroundColor #EAF2ED
+skinparam UsecaseBackgroundColor #EAF2ED
+skinparam UsecaseBorderColor #476858
+skinparam ComponentBackgroundColor #EAF2ED
+skinparam ComponentBorderColor #476858
+skinparam PackageBackgroundColor #F7FAF8
+skinparam PackageBorderColor #779285
+skinparam ClassBackgroundColor #EAF2ED
+skinparam ClassHeaderBackgroundColor #D8E7DE
+skinparam ClassBorderColor #476858
+skinparam DatabaseBackgroundColor #EAF2ED
+skinparam DatabaseBorderColor #476858
+skinparam ActivityBackgroundColor #EAF2ED
+skinparam ActivityBorderColor #476858
+skinparam ActivityDiamondBackgroundColor #F4EDD9
+skinparam ActivityDiamondBorderColor #8A7954
+skinparam ActivityStartColor #476858
+skinparam ActivityEndColor #476858
+skinparam StateBackgroundColor #EAF2ED
+skinparam StateBorderColor #476858
+skinparam StateStartColor #476858
+skinparam StateEndColor #476858
+skinparam NoteBackgroundColor #F8F2DF
+skinparam NoteBorderColor #AA9871
+skinparam SequenceParticipantBackgroundColor #EAF2ED
+skinparam SequenceParticipantBorderColor #476858
+skinparam SequenceLifeLineBorderColor #779285
+skinparam SequenceLifeLineBackgroundColor #F7FAF8
+skinparam SequenceGroupBackgroundColor #F7FAF8
+skinparam SequenceGroupBorderColor #779285
+skinparam SequenceGroupHeaderBackgroundColor #D8E7DE
+skinparam SequenceReferenceBackgroundColor #F7FAF8
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D07 时序图 · 取消退款
+actor 顾客 as C
+participant "订单协调服务" as O
+participant "库存服务" as I
+participant "模拟款项服务" as P
+database "数据库" as DB
+C -> O : 请求取消(订单ID,请求键,期望版本)
+O -> O : 验证本人权限与载荷
+O -> DB : BEGIN；按统一顺序锁竞争域和订单
+O -> DB : 读取最新订单、已有结果、服务端时间 A05
+alt 相同请求已完成
+O -> DB : 读取原结果；结束事务
+O --> C : 原取消与退款结果
+else 当前状态或版本不允许
+O -> DB : ROLLBACK
+O --> C : 状态已变化，刷新后操作
+else 待接单
+O -> P : 原模拟账户全额退款
+note right of I : 无占用，不增加库存
+O -> DB : 取消+退款+请求结果+日志；COMMIT
+O --> C : 取消成功，已全退
+else 已确认且未入住
+O -> O : 按入住日18:00边界计算退款
+O -> I : 释放本订单仍有效的全部夜占用
+alt 入住日18:00前
+O -> P : 全额退款
+else 18:00整及之后
+note right of P : 不创建退款流水
+end
+O -> DB : 取消+释放+款项+请求结果+日志；COMMIT
+O --> C : 返回实际退款额与取消结果
+end
+note over O,DB
+模拟账本与库存订单同库。任一更新失败整体回滚。
+酒店责任退款使用独立原因，不套用顾客自愿取消规则。
+end note
+
+@enduml

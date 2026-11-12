@@ -1,0 +1,102 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D03 类图 · 核心领域
+hide empty members
+class Account {
+id; loginName; passwordHash; role; hotelId
++authorize(resource, action)
+}
+class Hotel {
+id; campus; approvedVersion
+}
+class RoomType {
+id; capacity; facilities
+}
+class InventoryDay {
+date; capacity; stopped; version
++available()
+}
+class Booking {
+id; channel; status; checkIn; checkOut
+paidAt; version; contactSnapshot
++canTransition(event)
+}
+class BookingItem {
+id; quantity
+}
+class NightPrice {
+date; unitPriceCents; discountSnapshot
+}
+class Allocation {
+date; quantity; releasedAt
++releaseOnce()
+}
+class Payment {
+id; amountCents; originalAccount; requestKey
+}
+class Refund {
+id; amountCents; reason; requestKey
+}
+class PhysicalRoom {
+id; number; receptionState
+}
+class Stay {
+id; checkedInAt; checkedOutAt
+}
+class GuestRegistration {
+name; phone; identityNumber
+}
+class ChangeRequest {
+id; baseVersion; payload; status; reviewerId
+}
+class ModificationRequest {
+id; sourceBookingId; successorBookingId; step
+}
+class OperationLog {
+actorId; action; objectId; time; result
+}
+class BookingService {
++confirm(requestKey, version)
++cancel(reason, requestKey)
++modify(requestKey, quoteVersion)
+}
+Hotel "1" -- "0..*" RoomType
+Hotel "0..1" -- "0..*" Account : 员工归属
+RoomType "1" -- "0..*" InventoryDay
+Account "0..1" -- "0..*" Booking : 在线必填；线下 A07
+Hotel "1" -- "0..*" Booking
+Booking "1" *-- "1..*" BookingItem : A02 候选
+RoomType "1" -- "0..*" BookingItem
+BookingItem "1" *-- "1..*" NightPrice
+BookingItem "1" -- "0..*" Allocation
+InventoryDay "1" -- "0..*" Allocation
+Booking "1" -- "0..*" Payment
+Payment "1" -- "0..*" Refund
+RoomType "1" -- "0..*" PhysicalRoom
+Booking "1" -- "0..*" Stay
+PhysicalRoom "1" -- "0..*" Stay : 历史入住；当前互斥
+Stay "1" -- "1..*" GuestRegistration
+Hotel "1" -- "0..*" ChangeRequest
+ModificationRequest ..> Booking : 原单与后继单
+BookingService ..> Booking
+BookingService ..> Allocation
+BookingService ..> Payment
+BookingService ..> Refund
+BookingService ..> OperationLog
+note bottom of Booking
+多房型同酒店同日期为 A02 候选；未确认不回写需求。
+付款退款与订单状态分离。待接单没有有效 Allocation。
+成交逐夜价格不可被后续资料改价覆盖。
+end note
+note bottom of GuestRegistration
+真实数据不得用于原型；完整身份证不入日志。
+当前入住全部人员均需登记。
+end note
+
+@enduml

@@ -1,0 +1,69 @@
+@startuml
+skinparam monochrome false
+skinparam backgroundColor #FFFFFF
+skinparam ArrowColor #476858
+skinparam ActorBorderColor #476858
+skinparam ActorFontColor #263C32
+skinparam ActorBackgroundColor #EAF2ED
+skinparam UsecaseBackgroundColor #EAF2ED
+skinparam UsecaseBorderColor #476858
+skinparam ComponentBackgroundColor #EAF2ED
+skinparam ComponentBorderColor #476858
+skinparam PackageBackgroundColor #F7FAF8
+skinparam PackageBorderColor #779285
+skinparam ClassBackgroundColor #EAF2ED
+skinparam ClassHeaderBackgroundColor #D8E7DE
+skinparam ClassBorderColor #476858
+skinparam DatabaseBackgroundColor #EAF2ED
+skinparam DatabaseBorderColor #476858
+skinparam ActivityBackgroundColor #EAF2ED
+skinparam ActivityBorderColor #476858
+skinparam ActivityDiamondBackgroundColor #F4EDD9
+skinparam ActivityDiamondBorderColor #8A7954
+skinparam ActivityStartColor #476858
+skinparam ActivityEndColor #476858
+skinparam StateBackgroundColor #EAF2ED
+skinparam StateBorderColor #476858
+skinparam StateStartColor #476858
+skinparam StateEndColor #476858
+skinparam NoteBackgroundColor #F8F2DF
+skinparam NoteBorderColor #AA9871
+skinparam SequenceParticipantBackgroundColor #EAF2ED
+skinparam SequenceParticipantBorderColor #476858
+skinparam SequenceLifeLineBorderColor #779285
+skinparam SequenceLifeLineBackgroundColor #F7FAF8
+skinparam SequenceGroupBackgroundColor #F7FAF8
+skinparam SequenceGroupBorderColor #779285
+skinparam SequenceGroupHeaderBackgroundColor #D8E7DE
+skinparam SequenceReferenceBackgroundColor #F7FAF8
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D09 活动图 · 酒店无法接待
+start
+:本酒店工作人员登记停业/房间故障 A11;
+:明确房型、日期、受影响数量及原因;
+:事务内先封住影响范围，阻止继续接单\n保存应急事件、影响清单和日志;
+while (仍有未核对的影响订单?) is (是)
+:锁定并重新读取一笔订单;
+if (待接单且当前已无法履行?) then (是)
+:同事务取消并全额退款;
+elseif (已确认且未入住?) then (是)
+:前台在系统外电话通知;
+:酒店责任取消并全额退款\n不受入住日18:00限制;
+elseif (已入住或部分住宿受影响?) then (是)
+:登记人工处置事项\n未确认方案不自动结束入住或全退;
+else (已结束/无实际影响)
+:保留核对结果，不重复退款;
+endif
+:保存已核对状态与待人工事项
+失败可重试，已完成不重复执行;
+endwhile (否)
+:核对未决事项和模拟退款结果;
+:仅释放预订占用，不自动解除应急停售;
+stop
+
+@enduml

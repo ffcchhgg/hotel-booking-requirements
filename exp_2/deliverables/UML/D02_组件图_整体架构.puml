@@ -1,0 +1,57 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D02 组件图 · 整体架构
+top to bottom direction
+component "三类角色界面\n顾客 / 前台 / 管理" as UI
+component "M01 身份与授权" as Auth
+package "模块化单体应用服务" {
+component "M04 订单协调" as Orders
+component "M03 库存与报价" as Inv
+component "M05 模拟款项" as Pay
+component "M02 资料与审核" as Catalog
+component "M06 前台接待" as Stay
+component "M07 自动任务与应急" as Jobs
+component "M08 查询与统计" as Query
+component "M09 操作记录" as Log
+}
+component "事务与数据访问" as Repo
+database "关系数据库\n业务记录 / 模拟账本 / 请求结果" as DB
+UI --> Auth : 认证与资源授权
+UI --> Orders : 预订、取消、修改
+UI --> Catalog : 维护与审核
+UI --> Stay : 登记与房态
+UI --> Query : 查询
+Orders --> Inv : 校验与占用释放
+Orders --> Pay : 模拟收退款
+Stay --> Orders : 线下订房与状态变化
+Stay --> Inv : 接待条件与续住检查
+Jobs --> Orders : 到期处理
+Jobs --> Inv : 应急停售
+Catalog --> Inv : 生效前冲突校验
+Orders --> Log : 成功操作
+Catalog --> Log
+Stay --> Log
+Query --> Repo : 授权范围内读
+Orders --> Repo : 同一事务
+Inv --> Repo
+Pay --> Repo
+Catalog --> Repo
+Stay --> Repo
+Log --> Repo
+Repo --> DB
+note bottom of Auth
+每个入口必须授权；图中不逐一绘制所有鉴权依赖。
+后台任务使用受限系统身份，不绕过业务服务。
+end note
+note bottom of DB
+付款仅为同库模拟账本，可与订单库存共同提交。
+未来接真实支付须重新设计外部事务补偿。
+end note
+
+@enduml

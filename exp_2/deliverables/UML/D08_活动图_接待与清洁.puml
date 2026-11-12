@@ -1,0 +1,39 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D08 活动图 · 接待与清洁
+start
+:前台选择本酒店已确认订单;
+:核验身份；代订时电话确认;
+:登记全部入住人并选择具体房间;
+if (全部房间可接待且核验完成?) then (是)
+:同事务登记入住并关联房间、人员\n订单改为已入住，不重复扣房量;
+else (否)
+:提示待清洁/故障/资料不足等原因;
+stop
+endif
+:住宿期间;
+if (申请续住或提前退房?) then (是)
+:检查后续房量与接待冲突\n未决计价与状态规则 A10/A16，转人工方案核对;
+stop
+endif
+:办理正常退房;
+if (超过原定退房时间?) then (是)
+if (适用费率已配置?) then (是)
+:按候选 A09 计算并展示超时费;
+else (否)
+:提示费用配置缺失，暂不自动办结;
+stop
+endif
+endif
+:同事务保存退房结果、费用和操作日志\n订单已退房，房间待清洁;
+:工作人员完成打扫并确认;
+:房间可安排下一次入住\n不重复增加退房日夜库存;
+stop
+
+@enduml

@@ -1,0 +1,5 @@
+# Preserve byte identity used by the screenshot and check manifests.
+* -text whitespace=trailing-space,space-before-tab,cr-at-eol
+*.png binary
+*.jpg binary
+*.pdf binary

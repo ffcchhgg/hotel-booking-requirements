@@ -1,0 +1,23 @@
+# Local dependencies and caches
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
+# LaTeX intermediates (the final PDF is versioned)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+# Local previews, archives and course-provided references
+exp_2/work/
+exp_2/final/
+exp_2/guide/
+*.zip
+*.jar
+.env
+.env.*

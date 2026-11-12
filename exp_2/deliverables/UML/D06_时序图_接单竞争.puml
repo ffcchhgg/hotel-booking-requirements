@@ -1,0 +1,55 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D06 时序图 · 接单竞争
+actor "本酒店前台" as Staff
+participant "M04 订单服务" as Order
+participant "M03 库存服务" as Inv
+participant "M05 模拟款项" as Pay
+database "同一关系数据库事务" as DB
+Staff -> Order : 确认订单(请求键, 期望版本)
+Order -> Order : 授权及请求载荷校验
+Order -> DB : BEGIN；按统一锁序获取竞争域与订单锁
+Order -> DB : 重读状态、付款时间、当前版本
+alt 请求已成功执行
+Order -> DB : 读取原结果并结束事务
+Order --> Staff : 返回原业务结果
+else 版本或状态冲突
+Order -> DB : ROLLBACK
+Order --> Staff : 提示最新情况，不改库存
+else 已达到30分钟 [A05]
+Order -> Pay : 同事务全额退款
+Order -> DB : 取消、退款、幂等结果及日志；COMMIT
+Order --> Staff : 已超时取消
+else 仍可接单
+Order -> Inv : 校验全部入住夜与在线优先级 [A04]
+Inv -> DB : 读取容量、停售、占用与冲突待接单单
+alt 更早且可履行在线订单竞争同一房量
+Order -> DB : 结束事务；无业务修改
+Order --> Staff : 请先处理更早订单
+else 全部入住夜充足
+Inv -> DB : 插入全部夜占用
+Order -> DB : 写已确认、请求结果、成功日志
+Order -> Inv : 核验本次占用后受影响待接单单
+Inv --> Order : 当前已无法履行的准确订单集合
+Order -> Pay : 对集合中仍待接单者全额退款
+Order -> DB : 对这些订单取消、记款项与日志；COMMIT
+Order --> Staff : 确认成功
+else 当前无房
+Order -> Pay : 同事务全额退款
+Order -> DB : 写取消、款项、请求结果和日志；COMMIT
+Order --> Staff : 无房，已取消并全额退款
+end
+end
+note over Order,DB
+所有写入失败均整体回滚；重试重新读取或返回已提交结果。
+候选酒店库存协调锁串行化同酒店写操作，避免跨夜超卖。
+线下订单入口使用相同库存协调机制，不绕过已确认占用。
+end note
+
+@enduml

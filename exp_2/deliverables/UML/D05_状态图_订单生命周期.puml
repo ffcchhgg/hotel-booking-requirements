@@ -1,0 +1,38 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D05 状态图 · 订单生命周期
+hide empty description
+state "待接单" as Pending
+state "已确认" as Confirmed
+state "已入住" as Staying
+state "已退房" as Finished
+state "已取消" as Cancelled
+state "未入住结束" as NoShow
+[*] --> Pending : 在线模拟付款成功\nA06 草稿非有效订单
+[*] --> Confirmed : 线下收款与占用整体成功 A07
+Pending --> Confirmed : 前台确认 [未超时且全部夜有房]\n整体占用；竞争排序 A04/A05
+Pending --> Cancelled : 顾客取消 / 30分钟到期 / 无房\n全额退款；不释放不存在的占用
+Confirmed --> Cancelled : 本人取消 [未入住]\n18:00前全退；18:00起不退\n释放有效占用
+Confirmed --> Cancelled : 酒店无法接待 [未入住] A11\n全额退款；应急停售不解除
+Confirmed --> Staying : 核验及全部分房成功\n不重复扣库存
+Staying --> Finished : 正常退房\n房间待清洁，超时费 A09
+Confirmed --> NoShow : 原退房日12:00 [从未入住]\n不退款，不提前释放后续夜
+Finished --> [*]
+Cancelled --> [*]
+NoShow --> [*]
+note bottom of Staying
+已入住取消、提前退房退款与应急强制结束未决；
+不自动沿用未入住取消规则。
+end note
+note left of Pending
+付款成功不是预订成功。
+待接单不保留房量。
+end note
+
+@enduml

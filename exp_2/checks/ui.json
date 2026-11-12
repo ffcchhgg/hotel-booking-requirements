@@ -1,0 +1,304 @@
+{
+  "result": "PASS",
+  "revision": 2,
+  "pages": 18,
+  "screenshot_count": 26,
+  "consoleErrors": [],
+  "source_sha256": {
+    "prototype/index.html": "29e54b0fc288749b45d670c29250a3b35fe0806786278cd8e581882a4e70f9ce",
+    "prototype/style.css": "5a5607d5e9cbb7075eec0234bb55eda8debd6768e8994a27bf4d772ca89aaf58",
+    "prototype/app.js": "b415c52b69d961899c1fe79f8786aa8132be6cf58e3594ce22930edab281366f",
+    "prototype/assets/room.jpg": "439831a72a4c16508c0e6360dce0692a8582d0598236998ff1abf7e59ad1c461",
+    "prototype/assets/garden.jpg": "389072b51dff8717db02259c7e6010c89712b2a914ddbb8b7afbe8823f465a7d",
+    "prototype/assets/suite.jpg": "554fcddeb5046c8f0a0e8d2414363d261cf19c9dd311b1d643a683d76ba28565"
+  },
+  "screenshots": [
+    {
+      "file": "U01_normal.png",
+      "title": "顾客登录与注册",
+      "route": "#login",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "29eb069219bb8ef43481f7d777e7233551432c1965a834f93d9267f6dfe4a64f"
+    },
+    {
+      "file": "U02_normal.png",
+      "title": "房源查询",
+      "route": "#results",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "4a77800f8cb5a1a10bfecea9917e70bb0bcbfd37333ca110c5382e33f27b838e"
+    },
+    {
+      "file": "U03_normal.png",
+      "title": "酒店与房型详情",
+      "route": "#hotel/h1",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "6a55f1116106aac855b41120dfe75cc6c19f46b3e03da70ed8867851ec1ed94d"
+    },
+    {
+      "file": "U04_normal.png",
+      "title": "填写预订与模拟付款",
+      "route": "#checkout/h1/r1",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "c24bc750c8641d8f71d48cef74900e95552a1ef7aad6083cf79a8aa4d3b4faa6"
+    },
+    {
+      "file": "U05_normal.png",
+      "title": "我的订单",
+      "route": "#orders",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "3abee9a8742c0f857723d21e6e7640d24cb691e5438d426e7920b4c315e96c1a"
+    },
+    {
+      "file": "U06_normal.png",
+      "title": "前台接单",
+      "route": "#staff/orders",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "915e78831bb0b35f9968c4a457a543a1b7079400809e6ac4ea9e83edbd02c637"
+    },
+    {
+      "file": "U07_normal.png",
+      "title": "线下订房",
+      "route": "#staff/offline",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "4d1c9e7c711148415427da4675db17e574ffdc80c88d3779d1bfe7884d6b5439"
+    },
+    {
+      "file": "U08_normal.png",
+      "title": "入住与退房",
+      "route": "#staff/stays",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "ad8e4f191e391f29b8ebec481d15788c5211dd2a05e44837b286c729ef6559ce"
+    },
+    {
+      "file": "U09_normal.png",
+      "title": "房态与清洁",
+      "route": "#staff/rooms",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "6df7e0825cd3f76c94731ec63300151af6506e1922d8d4e4ef6fbcd3c6d5f4a9"
+    },
+    {
+      "file": "U10_normal.png",
+      "title": "酒店资料维护",
+      "route": "#staff/catalog",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "906302a6eff65ecfd017d72940035298a5d13faaf0b33238f20c0f36ea2e4507"
+    },
+    {
+      "file": "U11_normal.png",
+      "title": "每日房量与价格",
+      "route": "#staff/inventory",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "a27e6b7aaa4a2119197f44c46adae365b99f32a7de8fdc9fb0d1145b91b92603"
+    },
+    {
+      "file": "U12_normal.png",
+      "title": "审核与费率",
+      "route": "#admin/reviews",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "47c97f2565bcaa5a19dbb31514a5eb38710b0adb9ffe1bf5d7bb49c545a426cb"
+    },
+    {
+      "file": "U13_normal.png",
+      "title": "经营概览",
+      "route": "#admin/overview",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "4fcca76e2442770ac5725c2b415adb86047bf2e9fb138d0c9bdc64b22e3c7a30"
+    },
+    {
+      "file": "U14_normal.png",
+      "title": "操作记录",
+      "route": "#admin/logs",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "58b4ee365cebe006c740f79edfefe98b49411003a8efdf542674b08d7ef05656"
+    },
+    {
+      "file": "U15_normal.png",
+      "title": "无法接待处置",
+      "route": "#staff/incidents",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "6ecf17c88fd036c19b647bcdf85094563e4596797d88d804203c1dd6ab76ccdd"
+    },
+    {
+      "file": "U16_normal.png",
+      "title": "付款成功待确认",
+      "route": "#order/HB260001",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "8bb98afa70cf4e6b1e4e8794e6e09a2f700055b22a80c70be58cd02dfc891fe5"
+    },
+    {
+      "file": "U17_normal.png",
+      "title": "截止后取消确认",
+      "route": "#order/HB260001",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始确认订单改为昨日入住，构造已过18:00的取消边界",
+      "sha256": "6736aa81c941f90217badfd2abb4ce95dd7e01806f3346fd93b57f60add354bc"
+    },
+    {
+      "file": "U18_normal.png",
+      "title": "修改后的新订单失败",
+      "route": "#order/HB260004",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "构造原单已取消、新单无房全额退款的修改失败边界",
+      "sha256": "c6276058d7d1d987d302a7f46ffc51ad5664158af7ea1fed63c608fa072c0922"
+    },
+    {
+      "file": "首页.png",
+      "title": "顾客首页",
+      "route": "#home",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "a3ca3620143578d05481f96a62303db8d3d44586e99f9636953843200ef7b921"
+    },
+    {
+      "file": "首页_手机.png",
+      "title": "手机首页",
+      "route": "#home",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "bd863f885a89629a2929bf77e9a4ee09e17cbd64970ce9c401c50565dd25cdbd"
+    },
+    {
+      "file": "注册.png",
+      "title": "顾客注册",
+      "route": "#register",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "5a2b6b84c4c3381b4b6a8405432c832a3b4c6b7b389299a04cc2e91b268eab22"
+    },
+    {
+      "file": "查询_无匹配.png",
+      "title": "查询无匹配及恢复入口",
+      "route": "#results",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "家庭房与总价上限筛选",
+      "sha256": "b278707ac0af992c5d4f2a364f73785bf2e906e50b018ecae68533c80bc5a482"
+    },
+    {
+      "file": "入住登记.png",
+      "title": "入住登记弹窗",
+      "route": "#staff/stays",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "041f215c3e07f3272400215e123261a478d06cc8a6ff7cd139137e1314cf4bf5"
+    },
+    {
+      "file": "全局订单查询.png",
+      "title": "平台全局订单查询",
+      "route": "#admin/orders",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "0e3408622bdff737eb9750618d88b5647a248b18b76e68049d6bc9591af0dd07"
+    },
+    {
+      "file": "订单详情.png",
+      "title": "顾客已确认订单详情",
+      "route": "#order/HB260001",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "453b8115eed84dcc208ca5c93dffd5dd94605cb4e8aa16a6f4a81743db791ea0"
+    },
+    {
+      "file": "修改风险确认.png",
+      "title": "修改价格和风险确认",
+      "route": "#order/HB260001",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fixture": "初始虚构数据",
+      "sha256": "19017fd62d1df0c0fc373bb58f087434c2c448dec2ba742fde5c1438e06a3b64"
+    }
+  ],
+  "scope": "实际页面与关键状态截图；U17/U18使用明确构造的边界数据，不代表真实交易"
+}

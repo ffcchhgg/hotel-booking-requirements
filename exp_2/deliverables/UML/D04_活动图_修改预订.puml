@@ -1,0 +1,44 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName SimSun
+skinparam defaultFontSize 16
+skinparam dpi 160
+skinparam wrapWidth 210
+skinparam maxMessageSize 120
+title D04 活动图 · 修改预订
+start
+:顾客选择本人适用未入住订单;
+:填写新日期/房型/数量;
+:校验输入并取得新报价快照\nA02/A03/A08;
+if (输入有效且订单仍可修改?) then (是)
+:展示原退款额、新应付额\n原房不保留，新预订可能失败;
+else (否)
+:提示原因，原单不变;
+stop
+endif
+if (顾客确认风险?) then (是)
+:校验请求键与原状态/报价版本;
+else (否)
+stop
+endif
+if (状态或金额发生变化?) then (是)
+:重新展示并要求确认;
+stop
+endif
+:事务一：按原取消规则取消与退款\n释放有效占用并记录修改进度;
+if (事务一成功?) then (是)
+:建立后继结算申请;
+else (否)
+:保持一致原状态，安全重试;
+stop
+endif
+if (新模拟付款成功?) then (是)
+:事务二：新订单进入待接单\n新付款、修改关联一起保存;
+:新订单独立等待确认;
+else (否)
+:显示原单已取消、新申请未成功\n允许继续新申请，不恢复原单;
+endif
+stop
+
+@enduml
