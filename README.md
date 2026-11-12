@@ -45,6 +45,7 @@
 | 主要交互检查 | [ui_journeys.json](exp_2/checks/ui_journeys.json) | 15组任务与布局检查，含19条路由的桌面/手机检查 |
 | 人数输入检查 | [guest_count.json](exp_2/checks/guest_count.json) | 5组人数、容量、价格和登录回跳检查 |
 | 截图来源清单 | [ui.json](exp_2/checks/ui.json) | 截图场景、尺寸及源码/图片SHA-256 |
+| 报告检查 | [report_publication.json](exp_2/checks/report_publication.json) | PDF与LaTeX摘要、仓库链接和源码包独立编译结果 |
 | AI辅助过程 | [AI辅助记录.md](exp_2/process/AI辅助记录.md) | 辅助工作、真实反馈及修订过程的事实索引 |
 | 报告源文件 | [report_v2.tex](exp_2/report/report_v2.tex) | 用户修订的正文、彩图和仓库版本说明 |
 
@@ -88,4 +89,6 @@ xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error report_v2.tex
 
 ## 版本记录
 
-实验一的原始提交历史保留。实验二的设计和原型先保存为一个阶段提交，再用后续提交更新报告中的版本链接；报告引用的设计提交不会因以后开发而改变。
+实验一的原始提交历史保留。实验二的设计与原型阶段提交为 [`0070cfe8628b7`](https://github.com/ffcchhgg/hotel-booking-requirements/commit/0070cfe8628b76083660e73c900c99d5d788afa9)。报告引用这一固定版本；后续提交补充仓库说明和最终报告，不改变该设计版本中的模型及原型。
+
+`lab2-design-v1` 固定上述设计版本，`lab2-delivery-v1` 固定附有仓库说明的报告及对应工程材料。

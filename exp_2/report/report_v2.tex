@@ -424,16 +424,17 @@ A16&正常退房和未到店结束分开处理；提前退房不直接套用未�
 \normalsize
 
 \clearpage
-\section{材料与检查记录索引}
-\begin{enumerate}
-\item 实验二任务书：\pathtext{guide/2.md}。核对图种、模块界面、报告和提交要求时用。
-\item 实验一需求基线：\pathtext{../exp_1/requirements.md}；访谈材料：\pathtext{../exp_1/chat.txt}。这两个文件本次没有改动。
-\item 设计资料：\pathtext{design/01_架构与边界.md} 至 \pathtext{design/06_UI设计清单.md}；需求映射：\pathtext{design/traceability.json}。
-\item UML：\pathtext{deliverables/UML/} 里九组 \pathtext{.puml} 和 \pathtext{.png}。
-\item 完整界面截图：\pathtext{deliverables/UI界面/}。本报告里的局部裁图只为排版，不替代原图。
-\item 浏览器检查记录：\pathtext{checks/ui_journeys.json}、\pathtext{checks/guest_count.json}；截图场景清单：\pathtext{checks/ui.json}。
-\item AI 过程事实索引：\pathtext{process/AI辅助记录.md}；第一版存档：\pathtext{work/archive_ui_v1/}。
-\item 原型入口：\pathtext{prototype/index.html}；照片来源：\pathtext{prototype/assets/SOURCES.md}。照片是 Unsplash 公开图片的本地副本，用来说明空间，不代表真实酒店设施。
-\end{enumerate}
+\section{项目仓库与版本说明}
+本项目继续使用实验一的 GitHub 仓库保存进度。实验二的设计说明、UML 源文件和图片、可交互原型以及检查记录，已经整理为一个阶段版本，方便实验三在此基础上继续实现，也便于之后回看本次设计。
+
+\noindent 仓库地址：\par
+\noindent\href{https://github.com/ffcchhgg/hotel-booking-requirements}{\pathtext{https://github.com/ffcchhgg/hotel-booking-requirements}}
+
+\medskip
+\noindent 设计与原型版本：\href{https://github.com/ffcchhgg/hotel-booking-requirements/commit/0070cfe8628b76083660e73c900c99d5d788afa9}{\pathtext{0070cfe8628b7}}。
+
+这个版本保存的是实验二的设计和浏览器原型；数据库、服务端权限和后台任务仍属于后续实现内容。报告中的功能说明、设计理由和界面流程可以独立阅读，仓库用于补充查看原始材料及操作演示。
+
+详细的文件目录、材料索引、原型运行方法和检查记录说明集中放在仓库首页的 README 中。需要核对某张图的源码，或查看某项检查具体做了什么时，可以从那里进入；报告和最终提交材料则在后续提交中依据上述设计版本整理。
 
 \end{document}

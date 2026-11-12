@@ -1,0 +1,16 @@
+{
+  "client_date": "2026-11-13",
+  "pdf_pages": 35,
+  "pdf_sha256": "377151e00b2a38d5a1fdb68496fc3a2d05703386446c47287705ca827b9f4402",
+  "tex_sha256": "12df325705791a8dfc1fde6f96b485928eab6545dca8d9d02450f3770036a6cb",
+  "design_commit": "0070cfe8628b76083660e73c900c99d5d788afa9",
+  "all_font_files_embedded": true,
+  "resolved_cross_references": true,
+  "pdf_repo_and_commit_links_valid": true,
+  "unchanged_page_count_pixel_match": 33,
+  "source_archive_compile_verified": true,
+  "result": "PASS",
+  "report": "report/report_v2.pdf",
+  "source": "report/report_v2.tex",
+  "scope": "报告附录更新、PDF排版与独立编译核对；浏览器检查另见ui_journeys.json及guest_count.json。"
+}
