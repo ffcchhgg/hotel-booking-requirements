@@ -1,0 +1,14 @@
+{
+  "name": "campus-stay-browser-checks",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Browser acceptance checks for the Java hotel application",
+  "scripts": {
+    "test:e2e": "node tests/e2e.cjs",
+    "test:performance": "node tests/performance.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1",
+    "prettier": "3.6.2"
+  }
+}
