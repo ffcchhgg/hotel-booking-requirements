@@ -21,3 +21,9 @@ exp_2/guide/
 *.jar
 .env
 .env.*
+exp_3/code/target/
+exp_3/code/.runtime/
+exp_3/code/uploads/
+exp_3/code/playwright-report/
+exp_3/code/test-results/
+exp_3/work/
