@@ -1,0 +1,37 @@
+@startuml
+skinparam defaultFontName Microsoft YaHei
+skinparam shadowing false
+skinparam componentStyle rectangle
+title 实验三：实际组件与本地部署
+node "本机浏览器" {
+  component "顾客页面\napp.js" as customer
+  component "前台 / 管理员页面\nassets/work.js" as staff
+}
+node "Java 21 / Spring Boot 3.5.16\n127.0.0.1:8080" {
+  component "Spring Security\n会话 / BCrypt / CSRF" as auth
+  component "Controller\n输入与角色入口" as web
+  component "业务服务\n预订 / 定价 / 接待 / 审核 / 应急" as service
+  component "Idempotency\n事务内请求记录" as idem
+  component "DueJobs\n超时与未到店扫描" as jobs
+  component "Db / TransactionTemplate\n酒店协调行锁" as jdbc
+  component "Flyway\n版本化迁移" as migration
+}
+database "PostgreSQL 17.12\nDocker 127.0.0.1:55432\n持久卷 hotel_data" as db
+folder "本机 uploads/\n重编码图片像素" as images
+customer --> auth : 同源 HTTP / JSON
+staff --> auth : 同源 HTTP / JSON
+auth --> web
+web --> service
+service --> idem
+idem --> jdbc
+service --> jdbc
+jobs --> service
+jdbc --> db
+migration --> db
+web --> images : 验证格式与分辨率后写入
+note bottom of db
+hotel：演示运行数据
+hotel_test：事务与并发集成测试
+hotel_e2e_test：浏览器与性能验收
+end note
+@enduml

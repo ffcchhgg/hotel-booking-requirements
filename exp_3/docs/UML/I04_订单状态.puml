@@ -1,0 +1,29 @@
+@startuml
+skinparam defaultFontName Microsoft YaHei
+skinparam shadowing false
+title 实验三订单状态与事务效果
+state "待接单 PENDING" as Pending
+state "待入住 CONFIRMED" as Confirmed
+state "入住中 CHECKED_IN" as InHouse
+state "已退房 CHECKED_OUT" as Out
+state "已取消 CANCELLED" as Cancelled
+state "未到店 NO_SHOW" as NoShow
+[*] --> Pending : 在线模拟付款成功\n不占房
+[*] --> Confirmed : 前台线下模拟收款\n全部夜占用
+Pending --> Confirmed : 未超时且付款顺序允许\n逐夜核验、整体占用
+Pending --> Cancelled : 本人取消 / 30分钟到期 / 无房\n全额退款
+Confirmed --> Cancelled : 本人取消或修改原单\n入住日18:00前全退，之后不退
+Confirmed --> Cancelled : 酒店应急无法接待\n全退，停售仍保留
+Confirmed --> InHouse : 身份核验、全部住客登记\n实体房间已清洁且房型正确
+Confirmed --> NoShow : 原退房日12:00仍未入住\n结束占用，不退款
+InHouse --> InHouse : 期限前续住、新增夜有房\n追加价格、占用及补款
+InHouse --> Out : 正常退房、超时费核对\n房间转为待清洁
+Out --> [*]
+Cancelled --> [*]
+NoShow --> [*]
+note right of InHouse
+提前退房、超期续住和在住应急
+进入独立人工事项记录。
+登记/办结事项不自动变更住宿和款项。
+end note
+@enduml

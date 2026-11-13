@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-11-13T08:04:54.7293805Z",
+  "database": "hotel_e2e_test",
+  "action": "Stop and restart Java process; retain PostgreSQL persistent volume",
+  "passed": true,
+  "before": {
+    "orders": 10006,
+    "payments": 10010,
+    "nights": 10007,
+    "orderDigest": "a2ff3a6b31724ee352b7d7e115290f33",
+    "moneyDigest": "bbeee716a13faeec70f0aead8d2f1679",
+    "nightDigest": "2dd8a1284a04f393e15be94538d0e024"
+  },
+  "after": {
+    "orders": 10006,
+    "payments": 10010,
+    "nights": 10007,
+    "orderDigest": "a2ff3a6b31724ee352b7d7e115290f33",
+    "moneyDigest": "bbeee716a13faeec70f0aead8d2f1679",
+    "nightDigest": "2dd8a1284a04f393e15be94538d0e024"
+  }
+}

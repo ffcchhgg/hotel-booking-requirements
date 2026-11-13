@@ -1,0 +1,99 @@
+@startuml
+skinparam defaultFontName Microsoft YaHei
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+title 实验三：服务与持久记录映射
+class Actor <<record>> {
+ id : long
+ role : CUSTOMER / STAFF / ADMIN
+ hotelId : Long
+ require(role)
+ staff(hotelId)
+}
+class Pricing {
+ quote(actor, body)
+ recheckQuote(actor, id)
+ calculate(selection, offline, student, enforceAvailable)
+ availability(type, start, end)
+}
+class BookingService {
+ create(actor, key, body)
+ confirm(actor, id, key, body)
+ cancel(actor, id, key, body)
+ beginModification(actor, id, key, body)
+ finishModification(actor, id, key, body)
+ processDue()
+ sweepPending(hotel)
+}
+class ReceptionService {
+ checkIn(actor, id, key, body)
+ checkout(actor, id, key, body)
+ extend(actor, id, key, body)
+ clean(actor, id, key)
+}
+class ManagementService {
+ submit(actor, key, body)
+ review(actor, id, key, body)
+ fee(actor, hotel, key, body)
+}
+class IncidentService {
+ open(actor, key, body)
+ resolve(actor, id, booking, key, body)
+ close(actor, id, key, body)
+}
+class Idempotency {
+ execute(actor, action, key, body, operation)
+ hash(value)
+}
+class Db {
+ jdbc : JdbcTemplate
+ transaction : TransactionTemplate
+ lockHotel(id)
+ rows(sql, args)
+}
+entity booking {
+ id : bigint
+ room_type_id : bigint
+ customer_id : bigint?
+ status / version
+ check_in / check_out
+ rooms / guest_count / amount
+}
+entity booking_night {
+ booking_id / stay_date : PK
+ unit_price / rooms / allocated
+}
+entity money_entry {
+ booking_id / kind / amount
+ original_id : refund link
+}
+entity modification {
+ old_booking_id : unique
+ new_booking_id : unique?
+ state / payload
+}
+entity stay {
+ booking_id / room_id
+ started_at / ended_at
+ hourly_cents : rate snapshot
+}
+BookingService --> Pricing
+ReceptionService --> BookingService
+ReceptionService --> Pricing
+ManagementService --> BookingService
+IncidentService --> BookingService
+IncidentService --> ManagementService
+BookingService --> Idempotency
+Idempotency --> Db
+BookingService ..> Actor
+booking ||--|{ booking_night
+booking ||--|{ money_entry
+booking ||--o{ stay
+booking ||--o| modification : original
+modification "0..1" -- "0..1" booking : replacement
+note bottom of booking
+当前实现：每单一个房型、允许多间。
+混合房型拆为独立订单；不声称整组原子支付。
+金额整数分，价格按住宿夜保存快照。
+end note
+@enduml

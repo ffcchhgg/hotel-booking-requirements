@@ -1,0 +1,821 @@
+{
+  "generatedAt": "2026-11-13T07:58:33.293Z",
+  "base": "http://127.0.0.1:8081",
+  "platform": "win32",
+  "release": "10.0.26200",
+  "cpu": "Intel(R) Core(TM) i9-14900HX",
+  "logicalCpus": 32,
+  "memoryGiB": 32,
+  "node": "v24.18.0",
+  "totalOrders": 10006,
+  "concurrency": 20,
+  "requests": 100,
+  "passingWithin2Seconds": 100,
+  "p95Milliseconds": 19.27,
+  "maximumMilliseconds": 21.12,
+  "wallMilliseconds": 70,
+  "passed": true,
+  "scope": "Local HTTP requests including network, session authorization, SQL and JSON response parsing; five warmed-up query shapes; no claim about production load.",
+  "results": [
+    {
+      "worker": 3,
+      "index": 0,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 10.81,
+      "valid": true
+    },
+    {
+      "worker": 18,
+      "index": 0,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 12.46,
+      "valid": true
+    },
+    {
+      "worker": 0,
+      "index": 0,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 13.83,
+      "valid": true
+    },
+    {
+      "worker": 8,
+      "index": 0,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 13.91,
+      "valid": true
+    },
+    {
+      "worker": 5,
+      "index": 0,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 14.46,
+      "valid": true
+    },
+    {
+      "worker": 13,
+      "index": 0,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 14.67,
+      "valid": true
+    },
+    {
+      "worker": 1,
+      "index": 0,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 15.52,
+      "valid": true
+    },
+    {
+      "worker": 10,
+      "index": 0,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 16.15,
+      "valid": true
+    },
+    {
+      "worker": 11,
+      "index": 0,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 16.57,
+      "valid": true
+    },
+    {
+      "worker": 6,
+      "index": 0,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 17.32,
+      "valid": true
+    },
+    {
+      "worker": 17,
+      "index": 0,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 17.45,
+      "valid": true
+    },
+    {
+      "worker": 7,
+      "index": 0,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 17.99,
+      "valid": true
+    },
+    {
+      "worker": 14,
+      "index": 0,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 18.18,
+      "valid": true
+    },
+    {
+      "worker": 4,
+      "index": 0,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 18.7,
+      "valid": true
+    },
+    {
+      "worker": 15,
+      "index": 0,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 19.27,
+      "valid": true
+    },
+    {
+      "worker": 2,
+      "index": 0,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 19.93,
+      "valid": true
+    },
+    {
+      "worker": 16,
+      "index": 0,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 19.92,
+      "valid": true
+    },
+    {
+      "worker": 12,
+      "index": 0,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 20.29,
+      "valid": true
+    },
+    {
+      "worker": 19,
+      "index": 0,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 20.39,
+      "valid": true
+    },
+    {
+      "worker": 9,
+      "index": 0,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 21.12,
+      "valid": true
+    },
+    {
+      "worker": 3,
+      "index": 1,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 12.71,
+      "valid": true
+    },
+    {
+      "worker": 0,
+      "index": 1,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 10.88,
+      "valid": true
+    },
+    {
+      "worker": 5,
+      "index": 1,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 10.55,
+      "valid": true
+    },
+    {
+      "worker": 17,
+      "index": 1,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 7.56,
+      "valid": true
+    },
+    {
+      "worker": 7,
+      "index": 1,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 7.62,
+      "valid": true
+    },
+    {
+      "worker": 14,
+      "index": 1,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 7.58,
+      "valid": true
+    },
+    {
+      "worker": 2,
+      "index": 1,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 6.33,
+      "valid": true
+    },
+    {
+      "worker": 12,
+      "index": 1,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 6.01,
+      "valid": true
+    },
+    {
+      "worker": 8,
+      "index": 1,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 13.15,
+      "valid": true
+    },
+    {
+      "worker": 4,
+      "index": 1,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 8.78,
+      "valid": true
+    },
+    {
+      "worker": 10,
+      "index": 1,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 12.34,
+      "valid": true
+    },
+    {
+      "worker": 18,
+      "index": 1,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 17,
+      "valid": true
+    },
+    {
+      "worker": 13,
+      "index": 1,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 16.57,
+      "valid": true
+    },
+    {
+      "worker": 9,
+      "index": 1,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 10.57,
+      "valid": true
+    },
+    {
+      "worker": 11,
+      "index": 1,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 15.38,
+      "valid": true
+    },
+    {
+      "worker": 1,
+      "index": 1,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 17.19,
+      "valid": true
+    },
+    {
+      "worker": 19,
+      "index": 1,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 12.08,
+      "valid": true
+    },
+    {
+      "worker": 6,
+      "index": 1,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 15.74,
+      "valid": true
+    },
+    {
+      "worker": 3,
+      "index": 2,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 9.88,
+      "valid": true
+    },
+    {
+      "worker": 15,
+      "index": 1,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 14.2,
+      "valid": true
+    },
+    {
+      "worker": 16,
+      "index": 1,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 13.79,
+      "valid": true
+    },
+    {
+      "worker": 17,
+      "index": 2,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 11.31,
+      "valid": true
+    },
+    {
+      "worker": 14,
+      "index": 2,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 11.72,
+      "valid": true
+    },
+    {
+      "worker": 12,
+      "index": 2,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 12.93,
+      "valid": true
+    },
+    {
+      "worker": 0,
+      "index": 2,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 15.32,
+      "valid": true
+    },
+    {
+      "worker": 8,
+      "index": 2,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 12.87,
+      "valid": true
+    },
+    {
+      "worker": 6,
+      "index": 2,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 7.36,
+      "valid": true
+    },
+    {
+      "worker": 1,
+      "index": 2,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 8.11,
+      "valid": true
+    },
+    {
+      "worker": 7,
+      "index": 2,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 15.42,
+      "valid": true
+    },
+    {
+      "worker": 5,
+      "index": 2,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 16.35,
+      "valid": true
+    },
+    {
+      "worker": 4,
+      "index": 2,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 14.26,
+      "valid": true
+    },
+    {
+      "worker": 11,
+      "index": 2,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 9.84,
+      "valid": true
+    },
+    {
+      "worker": 2,
+      "index": 2,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 15.97,
+      "valid": true
+    },
+    {
+      "worker": 10,
+      "index": 2,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 13.81,
+      "valid": true
+    },
+    {
+      "worker": 18,
+      "index": 2,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 12.92,
+      "valid": true
+    },
+    {
+      "worker": 13,
+      "index": 2,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 11.56,
+      "valid": true
+    },
+    {
+      "worker": 16,
+      "index": 2,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 9.75,
+      "valid": true
+    },
+    {
+      "worker": 19,
+      "index": 2,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 11.14,
+      "valid": true
+    },
+    {
+      "worker": 9,
+      "index": 2,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 12.55,
+      "valid": true
+    },
+    {
+      "worker": 17,
+      "index": 3,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 8.14,
+      "valid": true
+    },
+    {
+      "worker": 3,
+      "index": 3,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 11.85,
+      "valid": true
+    },
+    {
+      "worker": 15,
+      "index": 2,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 13.4,
+      "valid": true
+    },
+    {
+      "worker": 12,
+      "index": 3,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 8.66,
+      "valid": true
+    },
+    {
+      "worker": 5,
+      "index": 3,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 7.34,
+      "valid": true
+    },
+    {
+      "worker": 0,
+      "index": 3,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 9.33,
+      "valid": true
+    },
+    {
+      "worker": 10,
+      "index": 3,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 6.92,
+      "valid": true
+    },
+    {
+      "worker": 7,
+      "index": 3,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 9.35,
+      "valid": true
+    },
+    {
+      "worker": 14,
+      "index": 3,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 13.96,
+      "valid": true
+    },
+    {
+      "worker": 2,
+      "index": 3,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 9.88,
+      "valid": true
+    },
+    {
+      "worker": 8,
+      "index": 3,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 12.66,
+      "valid": true
+    },
+    {
+      "worker": 15,
+      "index": 3,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 5.97,
+      "valid": true
+    },
+    {
+      "worker": 4,
+      "index": 3,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 13.24,
+      "valid": true
+    },
+    {
+      "worker": 6,
+      "index": 3,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 15.07,
+      "valid": true
+    },
+    {
+      "worker": 1,
+      "index": 3,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 15.25,
+      "valid": true
+    },
+    {
+      "worker": 18,
+      "index": 3,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 13.57,
+      "valid": true
+    },
+    {
+      "worker": 17,
+      "index": 4,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 11.8,
+      "valid": true
+    },
+    {
+      "worker": 11,
+      "index": 3,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 14.82,
+      "valid": true
+    },
+    {
+      "worker": 13,
+      "index": 3,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 14.04,
+      "valid": true
+    },
+    {
+      "worker": 19,
+      "index": 3,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 14.52,
+      "valid": true
+    },
+    {
+      "worker": 14,
+      "index": 4,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 7.43,
+      "valid": true
+    },
+    {
+      "worker": 16,
+      "index": 3,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 15.58,
+      "valid": true
+    },
+    {
+      "worker": 9,
+      "index": 3,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 15.4,
+      "valid": true
+    },
+    {
+      "worker": 3,
+      "index": 4,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 14.86,
+      "valid": true
+    },
+    {
+      "worker": 12,
+      "index": 4,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 12.45,
+      "valid": true
+    },
+    {
+      "worker": 10,
+      "index": 4,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 11.57,
+      "valid": true
+    },
+    {
+      "worker": 5,
+      "index": 4,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 12.57,
+      "valid": true
+    },
+    {
+      "worker": 0,
+      "index": 4,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 12.43,
+      "valid": true
+    },
+    {
+      "worker": 4,
+      "index": 4,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 6.69,
+      "valid": true
+    },
+    {
+      "worker": 7,
+      "index": 4,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 11.38,
+      "valid": true
+    },
+    {
+      "worker": 2,
+      "index": 4,
+      "endpoint": "/api/bookings?status=NO_SHOW&page=40",
+      "status": 200,
+      "milliseconds": 10.8,
+      "valid": true
+    },
+    {
+      "worker": 19,
+      "index": 4,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 5.27,
+      "valid": true
+    },
+    {
+      "worker": 8,
+      "index": 4,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 11.5,
+      "valid": true
+    },
+    {
+      "worker": 9,
+      "index": 4,
+      "endpoint": "/api/catalog/search?start=2026-11-13&end=2026-11-15&guests=7",
+      "status": 200,
+      "milliseconds": 4.87,
+      "valid": true
+    },
+    {
+      "worker": 1,
+      "index": 4,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 9.09,
+      "valid": true
+    },
+    {
+      "worker": 15,
+      "index": 4,
+      "endpoint": "/api/bookings?hotelId=1&dateType=check_in&page=200",
+      "status": 200,
+      "milliseconds": 12.3,
+      "valid": true
+    },
+    {
+      "worker": 11,
+      "index": 4,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 9.03,
+      "valid": true
+    },
+    {
+      "worker": 6,
+      "index": 4,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 10.33,
+      "valid": true
+    },
+    {
+      "worker": 18,
+      "index": 4,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 9.77,
+      "valid": true
+    },
+    {
+      "worker": 16,
+      "index": 4,
+      "endpoint": "/api/bookings?page=1",
+      "status": 200,
+      "milliseconds": 6.92,
+      "valid": true
+    },
+    {
+      "worker": 13,
+      "index": 4,
+      "endpoint": "/api/bookings?contact=%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE-9",
+      "status": 200,
+      "milliseconds": 11.58,
+      "valid": true
+    }
+  ]
+}

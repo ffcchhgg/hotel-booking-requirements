@@ -1,0 +1,42 @@
+@startuml
+skinparam defaultFontName Microsoft YaHei
+skinparam shadowing false
+title 修改预订：两个持久事务，原单不恢复
+actor 顾客 as user
+boundary 浏览器 as ui
+control Pricing as pricing
+control BookingService as bookings
+database PostgreSQL as db
+user -> ui : 选择新日期、人数和房间
+ui -> pricing : 创建新报价
+pricing -> db : 持久化逐夜报价与10分钟有效期
+pricing --> ui : 新总价、逐晚明细
+ui -> user : 展示原退款额、原房不保留风险
+user -> ui : 明确确认修改
+group 事务一：取消原订单
+ui -> bookings : beginModification(版本, 退款额, 报价, 请求键)
+bookings -> db : 请求去重 + 所属酒店行锁
+bookings -> db : 重查原状态、退款额及新报价
+bookings -> db : 原付款关联退款、释放原占用
+bookings -> db : 原单CANCELLED + 修改记录CANCELLED_OLD
+db --> bookings : COMMIT
+bookings --> ui : 修改记录ID
+end
+group 事务二：建立新订单
+ui -> bookings : finishModification(修改ID, 新请求键)
+bookings -> db : 行锁、重查报价有效期与每夜余房
+alt 新模拟付款成功
+bookings -> db : 新单PENDING + 付款 + 逐夜价格 + 关联原单
+db --> bookings : COMMIT
+bookings --> ui : 新订单ID
+else 新模拟付款失败
+bookings -> db : 修改记录FAILED；不创建新单和付款
+db --> bookings : COMMIT
+bookings --> ui : 提示失败，原单仍已取消
+else 房价变化 / 无房 / 报价到期
+db --> bookings : 事务二不创建新单
+bookings --> ui : 冲突提示，原单取消不回滚
+end
+end
+ui -> user : 展示进度；未完成者可获新报价后继续
+@enduml

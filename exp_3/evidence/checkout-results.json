@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-11-13T08:07:10.831Z",
+  "scenario": "HTTP browser checkout, fee confirmation, dirty-room transition and cleaning",
+  "passed": true,
+  "orderId": 10007,
+  "room": "404",
+  "lateFee": 25000
+}
