@@ -1,11 +1,12 @@
 """Count handwritten production sources separately from tests and wrapper/generated files."""
 from pathlib import Path
+import os
 import hashlib
 import json
 import xml.etree.ElementTree as ET
 
 root = Path(__file__).resolve().parents[1]
-evidence = root.parent / 'evidence'
+evidence = Path(os.environ.get('EVIDENCE_DIR', root.parent / 'evidence'))
 counts = []
 for file in sorted((root / 'src/main').rglob('*')):
     if file.suffix not in {'.java', '.js', '.css', '.html', '.sql', '.yml'}:

@@ -1,0 +1,187 @@
+{
+  "countingRule": "Handwritten src/main files only; excludes tests, Maven Wrapper, node_modules, images, UML and generated output. Nonblank measure excludes comment-only lines but includes braces; this is not a claim of independent statements.",
+  "javaNonblankNonCommentOnlyLines": 3032,
+  "productionNonblankNonCommentOnlyLines": 6210,
+  "tests": [
+    {
+      "name": "cn.edu.hotel.RulesTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "0.039"
+    },
+    {
+      "name": "cn.edu.hotel.BookingIT",
+      "tests": "51",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "10.13"
+    }
+  ],
+  "testTotal": 53,
+  "files": [
+    {
+      "file": "src/main/java/cn/edu/hotel/booking/BookingController.java",
+      "physicalLines": 78,
+      "nonblankNonCommentOnlyLines": 68
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/booking/BookingService.java",
+      "physicalLines": 589,
+      "nonblankNonCommentOnlyLines": 565
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/booking/DueJobs.java",
+      "physicalLines": 28,
+      "nonblankNonCommentOnlyLines": 24
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/catalog/CatalogController.java",
+      "physicalLines": 114,
+      "nonblankNonCommentOnlyLines": 106
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/catalog/Pricing.java",
+      "physicalLines": 208,
+      "nonblankNonCommentOnlyLines": 195
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/ApiErrors.java",
+      "physicalLines": 57,
+      "nonblankNonCommentOnlyLines": 49
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/Audit.java",
+      "physicalLines": 30,
+      "nonblankNonCommentOnlyLines": 25
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/BusinessClock.java",
+      "physicalLines": 23,
+      "nonblankNonCommentOnlyLines": 18
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/BusinessException.java",
+      "physicalLines": 32,
+      "nonblankNonCommentOnlyLines": 25
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/Db.java",
+      "physicalLines": 79,
+      "nonblankNonCommentOnlyLines": 67
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/DemoData.java",
+      "physicalLines": 112,
+      "nonblankNonCommentOnlyLines": 107
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/FaultProbe.java",
+      "physicalLines": 11,
+      "nonblankNonCommentOnlyLines": 7
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/Idempotency.java",
+      "physicalLines": 77,
+      "nonblankNonCommentOnlyLines": 72
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/Input.java",
+      "physicalLines": 91,
+      "nonblankNonCommentOnlyLines": 81
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/core/Json.java",
+      "physicalLines": 50,
+      "nonblankNonCommentOnlyLines": 43
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/HotelApplication.java",
+      "physicalLines": 13,
+      "nonblankNonCommentOnlyLines": 11
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/identity/Actor.java",
+      "physicalLines": 83,
+      "nonblankNonCommentOnlyLines": 73
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/identity/AuthController.java",
+      "physicalLines": 104,
+      "nonblankNonCommentOnlyLines": 97
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/identity/SecurityConfig.java",
+      "physicalLines": 113,
+      "nonblankNonCommentOnlyLines": 107
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/management/ImageController.java",
+      "physicalLines": 118,
+      "nonblankNonCommentOnlyLines": 112
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/management/IncidentService.java",
+      "physicalLines": 225,
+      "nonblankNonCommentOnlyLines": 216
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/management/ManagementController.java",
+      "physicalLines": 177,
+      "nonblankNonCommentOnlyLines": 161
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/management/ManagementService.java",
+      "physicalLines": 322,
+      "nonblankNonCommentOnlyLines": 309
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/reception/ReceptionController.java",
+      "physicalLines": 98,
+      "nonblankNonCommentOnlyLines": 85
+    },
+    {
+      "file": "src/main/java/cn/edu/hotel/reception/ReceptionService.java",
+      "physicalLines": 425,
+      "nonblankNonCommentOnlyLines": 409
+    },
+    {
+      "file": "src/main/resources/application.yml",
+      "physicalLines": 34,
+      "nonblankNonCommentOnlyLines": 34
+    },
+    {
+      "file": "src/main/resources/db/migration/V1__schema.sql",
+      "physicalLines": 127,
+      "nonblankNonCommentOnlyLines": 127
+    },
+    {
+      "file": "src/main/resources/db/migration/V2__quotes.sql",
+      "physicalLines": 8,
+      "nonblankNonCommentOnlyLines": 8
+    },
+    {
+      "file": "src/main/resources/static/app.js",
+      "physicalLines": 757,
+      "nonblankNonCommentOnlyLines": 756
+    },
+    {
+      "file": "src/main/resources/static/assets/work.js",
+      "physicalLines": 807,
+      "nonblankNonCommentOnlyLines": 806
+    },
+    {
+      "file": "src/main/resources/static/index.html",
+      "physicalLines": 28,
+      "nonblankNonCommentOnlyLines": 28
+    },
+    {
+      "file": "src/main/resources/static/style.css",
+      "physicalLines": 1431,
+      "nonblankNonCommentOnlyLines": 1419
+    }
+  ],
+  "jarSha256": "50a9f246558b813c75a66812b44be5e847c5be405509a7e423da87aa953dceff"
+}

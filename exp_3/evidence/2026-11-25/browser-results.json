@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-11-25T15:53:43.504Z",
+  "base": "http://127.0.0.1:8087",
+  "browserErrors": [],
+  "results": [
+    {
+      "name": "首页清晰导航、整数人数和7人查房",
+      "status": "PASS",
+      "milliseconds": 353
+    },
+    {
+      "name": "顾客付款→前台接单→完整入住→续住→脱敏记录",
+      "status": "PASS",
+      "milliseconds": 3414
+    },
+    {
+      "name": "顾客取消展示并生成真实退款记录",
+      "status": "PASS",
+      "milliseconds": 1398
+    },
+    {
+      "name": "修改形成关联新单且原单保持取消",
+      "status": "PASS",
+      "milliseconds": 1862
+    },
+    {
+      "name": "线下学生价预订、资料提交及管理员批准",
+      "status": "PASS",
+      "milliseconds": 2200
+    },
+    {
+      "name": "应急预览、停售全退与恢复接待",
+      "status": "PASS",
+      "milliseconds": 2365
+    },
+    {
+      "name": "经营统计、日志和越权阻止",
+      "status": "PASS",
+      "milliseconds": 1243
+    },
+    {
+      "name": "390像素小屏、注册登录和退出保留导航",
+      "status": "PASS",
+      "milliseconds": 1139
+    }
+  ]
+}

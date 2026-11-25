@@ -7,8 +7,12 @@ if ($Database -notmatch '^hotel(_[a-z0-9]+)*$') { throw 'Database must be a hote
 docker compose up -d --wait
 if ($LASTEXITCODE -ne 0) { throw 'PostgreSQL startup failed. Start Docker Desktop first.' }
 if ($Database -ne 'hotel') {
-  [string]$found = docker compose exec -T db psql -U hotel -d postgres -tAc "SELECT 1 FROM pg_database WHERE datname='$Database'"
-  if ($found.Trim() -ne '1') { docker compose exec -T db psql -U hotel -d postgres -c "CREATE DATABASE $Database" }
+  $exists = docker compose exec -T db psql -v ON_ERROR_STOP=1 -U hotel -d postgres -tAc "SELECT EXISTS (SELECT 1 FROM pg_database WHERE datname='$Database')"
+  if ($LASTEXITCODE -ne 0 -or $exists -notin @('t', 'f')) { throw "Cannot check database $Database." }
+  if ($exists -eq 'f') {
+    docker compose exec -T db psql -v ON_ERROR_STOP=1 -U hotel -d postgres -c "CREATE DATABASE $Database"
+    if ($LASTEXITCODE -ne 0) { throw "Cannot create database $Database." }
+  }
 }
 if (-not $SkipBuild) {
   & .\mvnw.cmd -B verify
@@ -22,7 +26,12 @@ $env:HOTEL_DEMO = 'true'
 $env:PORT = [string]$Port
 $jarPath = Join-Path $projectPath ".runtime/hotel-$Port.jar"
 Copy-Item -LiteralPath 'target/hotel-booking.jar' -Destination $jarPath -Force
-$javaSettings = (& java -XshowSettings:properties -version 2>&1 | Out-String)
+$javaSettings = (& {
+  # Java prints version and property settings to stderr even on success.
+  $ErrorActionPreference = 'Continue'
+  & java -XshowSettings:properties -version 2>&1
+} | Out-String)
+if ($LASTEXITCODE -ne 0) { throw 'Cannot read JDK settings. Confirm that java is available.' }
 $javaDirectory = [regex]::Match($javaSettings, 'java\.home\s*=\s*([^\r\n]+)').Groups[1].Value.Trim()
 if (-not $javaDirectory) { throw 'Cannot resolve the actual JDK executable.' }
 $javaPath = Join-Path $javaDirectory 'bin/java.exe'

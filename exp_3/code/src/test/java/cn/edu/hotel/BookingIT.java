@@ -390,6 +390,28 @@ class BookingIT {
   }
 
   @Test
+  void overdueConfirmedOrderCannotBeCancelledOrModifiedBeforeSchedulerRuns() {
+    long id = create(guest, today, 1, 1);
+    confirm(id);
+    time("2026-11-14T04:00:00Z");
+    String quote =
+        pricing.quote(guest, selection(today.plusDays(2), 1, 1, 1, false)).get("id").toString();
+    Map<String, Object> body = new HashMap<>(cancelBody(id));
+    body.put("quoteId", quote);
+    body.put("riskAccepted", true);
+
+    assertThrows(BusinessException.class, () -> bookings.cancel(guest, id, key(), cancelBody(id)));
+    assertThrows(BusinessException.class, () -> bookings.beginModification(guest, id, key(), body));
+    assertEquals("CONFIRMED", order(id).get("status"));
+    assertEquals(0, count("modification"));
+    assertEquals(1, count("money_entry"));
+
+    bookings.processDue();
+    assertEquals("NO_SHOW", order(id).get("status"));
+    assertEquals(1, count("money_entry"));
+  }
+
+  @Test
   void modificationFailureDoesNotResurrectOriginalBooking() {
     long id = create(guest, today, 1, 1);
     confirm(id);

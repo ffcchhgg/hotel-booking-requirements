@@ -21,6 +21,8 @@ $after = docker compose exec -T db psql -v ON_ERROR_STOP=1 -U hotel -d $Database
 if ($LASTEXITCODE -ne 0) { throw 'Cannot capture state after restart.' }
 $passed = $before.Trim() -eq $after.Trim()
 $record = [ordered]@{ generatedAt = [DateTime]::UtcNow.ToString('o'); database = $Database; action = 'Stop and restart Java process; retain PostgreSQL persistent volume'; passed = $passed; before = ($before | ConvertFrom-Json); after = ($after | ConvertFrom-Json) }
-$record | ConvertTo-Json -Depth 6 | Set-Content -Encoding utf8 '../evidence/restart-results.json'
+$evidence = if ($env:EVIDENCE_DIR) { $env:EVIDENCE_DIR } else { '../evidence' }
+New-Item -ItemType Directory -Path $evidence -Force | Out-Null
+$record | ConvertTo-Json -Depth 6 | Set-Content -Encoding utf8 (Join-Path $evidence 'restart-results.json')
 if (-not $passed) { throw 'State changed during restart. Inspect pending timeout tasks and evidence.' }
 Write-Output 'Order, payment and nightly inventory counts and content digests match after process restart.'

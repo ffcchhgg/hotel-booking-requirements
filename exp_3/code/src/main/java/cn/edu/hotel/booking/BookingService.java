@@ -377,7 +377,9 @@ VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
           Map<String, Object> order = accessible(actor, id);
           version(order, body);
           cancellable(order);
-          long refund = refundable(order, clock.now());
+          Instant now = clock.now();
+          requireBeforeNoShow(order, now);
+          long refund = refundable(order, now);
           if (Input.number(body, "expectedRefund", 0, Long.MAX_VALUE) != refund) {
             throw BusinessException.conflict("退款金额已变化，请重新确认");
           }
@@ -438,11 +440,14 @@ VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
           Map<String, Object> order = accessible(actor, id);
           version(order, body);
           cancellable(order);
+          requireBeforeNoShow(order, clock.now());
           Input.require(Input.flag(body, "riskAccepted"), "请确认原房不保留、新预订可能失败的风险");
           String quoteId = Input.text(body, "quoteId", 40);
           Pricing.Calculation quote = pricing.recheckQuote(actor, quoteId);
           Input.require(quote.hotelId() == Db.value(order, "hotel_id"), "修改需选择同一酒店的房型");
-          long refund = refundable(order, clock.now());
+          Instant now = clock.now();
+          requireBeforeNoShow(order, now);
+          long refund = refundable(order, now);
           if (Input.number(body, "expectedRefund", 0, Long.MAX_VALUE) != refund) {
             throw BusinessException.conflict("退款已变化，请重新确认");
           }
@@ -536,6 +541,17 @@ VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
     }
   }
 
+  private boolean isNoShowDue(Map<String, Object> order, Instant now) {
+    return "CONFIRMED".equals(order.get("status"))
+        && !now.isBefore(clock.at(Db.date(order, "check_out"), 12));
+  }
+
+  private void requireBeforeNoShow(Map<String, Object> order, Instant now) {
+    if (isNoShowDue(order, now)) {
+      throw BusinessException.conflict("已到原定退房日12:00，订单将按未到店结束，请刷新订单");
+    }
+  }
+
   public void processDue() {
     for (Map<String, Object> hotel : db.rows("SELECT id FROM hotel ORDER BY id")) {
       db.transaction.executeWithoutResult(
@@ -556,7 +572,7 @@ VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                         + " ORDER BY id FOR UPDATE",
                     id,
                     clock.today())) {
-              if (!clock.now().isBefore(clock.at(Db.date(order, "check_out"), 12))) {
+              if (isNoShowDue(order, clock.now())) {
                 db.jdbc.update(
                     "UPDATE booking SET status='NO_SHOW',reason='NO_SHOW',version=version+1 WHERE"
                         + " id=?",
